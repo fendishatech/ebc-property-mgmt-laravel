@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('username');
             $table->string('password');
             $table->enum('user_role', ['user', 'admin'])->nullable()->default('user');
-            $table->dateTime('createdAt');
-            $table->dateTime('updatedAt');
+            $table->dateTime('createdAt')->useCurrent();
+            $table->dateTime('updatedAt')->useCurrent();
         });
     }
 
