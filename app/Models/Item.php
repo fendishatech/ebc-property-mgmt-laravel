@@ -9,12 +9,17 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['item_name', 'partnumber', 'categoryId'];
-
     protected $table = 'items';
+
+    protected $fillable = ['item_name', 'partnumber', 'categoryId'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function storeItems()
+    {
+        return $this->hasMany(StoreItem::class);
     }
 }

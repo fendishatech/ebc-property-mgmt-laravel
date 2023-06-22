@@ -10,4 +10,16 @@ class StoreItem extends Model
     use HasFactory;
 
     protected $table = 'storeItems';
+
+    protected $fillable = [
+        'store_name',
+        'quantity',
+        'location',
+        'itemId'
+    ];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }
