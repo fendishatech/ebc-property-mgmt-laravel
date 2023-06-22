@@ -13,7 +13,7 @@
         <!-- Logo -->
         <div class="flex items-center">
             <img class="w-[80px] h-[80px]" src="{{ url('/images/ebc-logo.png') }}" alt="Ebc logo" />
-            <div class="flex flex-col items-center">
+            <div class="hidden md:flex flex-col items-center">
                 <p class="text-2xl text-red-600 font-semibold">
                     የኢትዮጵያ ብሮድካስቲንግ ኮርፖሬሽን
                 </p>
@@ -91,7 +91,7 @@
         <!-- Logo -->
         <div class="flex items-center pr-4 border-r-2 border-red-600">
             <img class="w-[80px] h-[80px]" src="{{ url('/images/ebc-logo.png') }}" alt="Ebc logo" />
-            <div class="flex flex-col items-center">
+            <div class="hidden md:flex flex-col items-center">
                 <p class="text-2xl text-red-600 font-semibold">
                     የኢትዮጵያ ብሮድካስቲንግ ኮርፖሬሽን
                 </p>

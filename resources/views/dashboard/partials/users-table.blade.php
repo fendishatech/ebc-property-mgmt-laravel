@@ -1,13 +1,13 @@
 <div class="flex flex-col">
     <div class="w-full">
-        <div class="border-b border-gray-200 shadow">
+        <div class="overflow-x-auto border-b border-gray-200 shadow">
             <table class="divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
                         <th class="px-6 py-2 text-xs text-gray-500">ID</th>
                         <th class="px-6 py-2 text-xs text-gray-500">First Name</th>
                         <th class="px-6 py-2 text-xs text-gray-500">Last Name</th>
-                        <th class="px-6 py-2 text-xs text-gray-500">Location</th>
+                        <th class="px-6 py-2 text-xs text-gray-500">Role</th>
                         <th class="px-6 py-2 text-xs text-gray-500">Edit</th>
                         <th class="px-6 py-2 text-xs text-gray-500">Delete</th>
                     </tr>
@@ -28,7 +28,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-500">
-                                {{ $user->location }}
+                                {{ $user->user_role }}
                             </td>
                             <td class="px-6 py-4">
                                 <a href="#"
