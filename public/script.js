@@ -8,3 +8,14 @@ dropDownButton.addEventListener("click", function () {
         dropDownMenu.classList.add("hidden");
     }
 });
+
+// const realTimeDiv = document.querySelector("#real-time");
+// realTimeDiv.addEventListener(showTime());
+
+function showTime() {
+    let dateTime = new Date();
+    let time = dateTime.toLocaleTimeString();
+    document.getElementById("real-time").innerHTML = time;
+}
+
+setInterval(showTime, 1000);

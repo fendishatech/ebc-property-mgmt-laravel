@@ -1,4 +1,4 @@
-<div class="flex flex-col">
+<div class="flex flex-col overflow-auto">
     <div class="w-full">
         <div class="border-b border-gray-200 shadow">
             <table class="divide-y divide-gray-300">
