@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('phone_no');
             $table->string('employee_position')->nullable()->default('0');
-            $table->dateTime('createdAt');
-            $table->dateTime('updatedAt');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->integer('departmentId')->nullable()->index('departmentId');
         });
     }

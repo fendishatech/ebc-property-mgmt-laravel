@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
+        Schema::create('storeItems', function (Blueprint $table) {
             $table->integer('id', true);
             $table->enum('store_name', ['ict', 'transmitter', 'technical']);
             $table->integer('quantity');
             $table->string('location');
-            $table->dateTime('createdAt');
-            $table->dateTime('updatedAt');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->integer('itemId')->nullable()->index('itemId');
         });
     }

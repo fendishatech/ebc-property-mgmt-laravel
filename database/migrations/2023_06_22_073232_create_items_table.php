@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('id', true);
             $table->string('item_name');
             $table->string('partnumber');
-            $table->dateTime('createdAt');
-            $table->dateTime('updatedAt');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->integer('categoryId')->nullable()->index('categoryId');
         });
     }

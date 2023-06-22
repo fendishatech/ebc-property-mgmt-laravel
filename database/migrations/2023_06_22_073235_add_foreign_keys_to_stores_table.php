@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('stores', function (Blueprint $table) {
-            $table->foreign(['itemId'], 'stores_ibfk_1')->references(['id'])->on('items')->onUpdate('CASCADE')->onDelete('SET NULL');
+        Schema::table('storeItems', function (Blueprint $table) {
+            $table->foreign(['itemId'], 'store_items_ibfk_1')->references(['id'])->on('items')->onUpdate('CASCADE')->onDelete('SET NULL');
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('stores', function (Blueprint $table) {
+        Schema::table('storeItems', function (Blueprint $table) {
             $table->dropForeign('stores_ibfk_1');
         });
     }
