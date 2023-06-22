@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
+Route::get('/logout', function () {
+    Session::forget('user');
+    return redirect('/');
+});
+
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::post('/login', [UserController::class, "login"]);
+Route::get('/profile_setting', function () {
+    return view("change_password");
+});
+
+Route::post('/profile_setting', [UserController::class, "changePassword"]);
