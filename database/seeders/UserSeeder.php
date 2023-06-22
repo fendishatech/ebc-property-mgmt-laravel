@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,14 +18,12 @@ class UserSeeder extends Seeder
     {
         $now = Carbon::now();
 
-        DB::table("users")->insert([
+        User::create([
             'first_name' => "kidus",
             'last_name' => "Taye",
             'username' => "kidus@user",
             'password' => Hash::make("12345"),
             'user_role' => "admin",
-            'createdAt' => $now,
-            'updatedAt' => $now,
         ]);
     }
 }
