@@ -68,8 +68,23 @@ class StoreItemController extends Controller
      */
     public function edit(string $id)
     {
+        $items = Item::all();
+        $storeNames = ['ict', 'transmitter', 'technical'];
         $storeItem = StoreItem::find($id);
-        return view('store.edit', ['storeItem' => $storeItem]);
+
+        $locationArray = explode(',', $storeItem->location);
+        $shelf = substr($locationArray[0], strpos($locationArray[0], '-') + 1);
+        $box = substr($locationArray[1], strpos($locationArray[1], '-') + 1);
+        $row = substr($locationArray[2], strpos($locationArray[2], '-') + 1);
+        $cell = substr($locationArray[3], strpos($locationArray[3], '-') + 1);
+        $location = [
+            'row' => $row,
+            'shelf' => $shelf,
+            'box' => $box,
+            'cell' => $cell
+        ];
+
+        return view('store.edit', ['storeItem' => $storeItem, 'items' => $items, 'storeNames' => $storeNames, 'location' => $location]);
     }
 
     /**
@@ -77,7 +92,9 @@ class StoreItemController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $storeItem = StoreItem::find($id);
+        $storeItem->update($request->all());
+        return redirect('items_store')->with("success", "Item has been Updated");
     }
 
     /**
@@ -85,6 +102,8 @@ class StoreItemController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $storeItem = StoreItem::find($id);
+        $storeItem->delete();
+        return redirect('items_store')->with("success", "Item has been deleted");
     }
 }

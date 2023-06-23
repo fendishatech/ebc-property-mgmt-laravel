@@ -49,12 +49,16 @@
                                     {{ $item->location }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ url('/items_store' . $item->id) }}"
+                                    <a href="{{ url('/items_store/' . $item->id . '/edit') }}"
                                         class="px-4 py-1 text-sm text-indigo-600 bg-indigo-200 rounded-full">Edit</a>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ url('/items_store' . $item->id) }}"
-                                        class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</a>
+                                    <form action="{{ url('/items_store/' . $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button
+                                            class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
