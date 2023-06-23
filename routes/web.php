@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\StoreItemController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -32,3 +34,6 @@ Route::get('/profile_setting', function () {
 });
 
 Route::post('/profile_setting', [UserController::class, "changePassword"]);
+
+Route::resource('/items_store', StoreItemController::class);
+Route::resource('/items', ItemController::class);

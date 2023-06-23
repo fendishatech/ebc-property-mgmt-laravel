@@ -30,7 +30,7 @@
                     <a href="/home">Home</a>
                 </li>
                 <li class="px-2 md:px-6 py-2 text-red-700 hover:bg-red-600 hover:text-white rounded">
-                    <a href="/store">Store</a>
+                    <a href="/items_store">Store</a>
                 </li>
             </ul>
             <!-- Profile Settings -->
