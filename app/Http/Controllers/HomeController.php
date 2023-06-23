@@ -12,6 +12,12 @@ class HomeController extends Controller
 {
     function index(Request $req)
     {
+        $lowQuantityItems =
+            StoreItem::join('items', 'storeItems.itemId', '=', 'items.id')
+            ->where('storeItems.quantity', '<', 50)
+            ->select('storeItems.*', 'items.item_name')
+            ->get();;
+
         $currentDateTime = Carbon::now();
         $currentDay = $currentDateTime->format('l');
         $currentDate = $currentDateTime->format('F j, Y');
@@ -29,6 +35,7 @@ class HomeController extends Controller
             'currentDay' => $currentDay,
             'currentDate' => $currentDate,
             'currentTime' => $currentTime,
+            'lowQuantityItems' => $lowQuantityItems
         ]);
     }
 }
