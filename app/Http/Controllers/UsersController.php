@@ -34,22 +34,23 @@ class UsersController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'username' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:6|max:20|regex:/[A-Z]/|regex:/[a-z]/|regex:/[0-9]/|regex:/[@$!%*?&]/',
         ]);
 
+        if ($validatedData) {
 
-        $user = new User();
+            $user = new User();
 
+            $user->first_name = $validatedData['first_name'];
+            $user->last_name = $validatedData['last_name'];
+            $user->username = $validatedData['username'];
+            $user->password = $validatedData['password'];
+            $user->save();
 
-
-
-        $user->first_name = $validatedData['first_name'];
-        $user->last_name = $validatedData['last_name'];
-        $user->username = $validatedData['username'];
-        $user->password = $validatedData['password'];
-        $user->save();
-
-        return redirect('/users')->with('success', 'User added successfully.');
+            return redirect('/users')->with('success', 'User added successfully.');
+        } else {
+            return redirect()->back()->withErrors("All fields are required");
+        }
     }
 
     /**

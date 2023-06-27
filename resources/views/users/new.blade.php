@@ -15,6 +15,9 @@
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
                             name="first_name" min="1">
+                        @if ($errors->has('first_name'))
+                            <span class="text-sm text-red-400">{{ $errors->first('first_name') }}</span>
+                        @endif
                     </div>
                 </div>
                 {{-- last_name --}}
@@ -25,6 +28,9 @@
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
                             name="last_name" min="1">
+                        @if ($errors->has('last_name'))
+                            <span class="text-sm text-red-400">{{ $errors->first('last_name') }}</span>
+                        @endif
                     </div>
                 </div>
                 {{-- username --}}
@@ -35,6 +41,9 @@
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
                             name="username" min="1">
+                        @if ($errors->has('username'))
+                            <span class="text-sm text-red-400">{{ $errors->first('username') }}</span>
+                        @endif
                     </div>
                 </div>
                 {{-- password --}}
@@ -45,6 +54,9 @@
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
                             name="password" min="1">
+                        @if ($errors->has('password'))
+                            <span class="text-sm text-red-400">{{ $errors->first('password') }}</span>
+                        @endif
                     </div>
                 </div>
 
