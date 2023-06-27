@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite('resources/css/app.css')
+    {{-- <link rel="stylesheet" href="/build/assets/app-591e136b.css"> --}}
 </head>
 
 <body>
@@ -26,12 +27,17 @@
         <div class="flex items-center justify-center gap-4">
             <!-- Links -->
             <ul class="flex items-center text-[18px] font-bold">
-                <li class="px-2 md:px-6 active text-red-700 py-2 hover:bg-red-600 hover:text-white rounded">
-                    <a href="/home">Home</a>
+                <li class="px-2 md:px-6 active py-2 group hover:bg-red-600 rounded">
+                    <a class="text-red-700 no-underline group-hover:text-white" href="/home">Home</a>
                 </li>
-                <li class="px-2 md:px-6 py-2 text-red-700 hover:bg-red-600 hover:text-white rounded">
-                    <a href="/items_store">Store</a>
+                <li class="px-2 md:px-6 active py-2 group hover:bg-red-600 rounded">
+                    <a class="text-red-700 no-underline group-hover:text-white" href="/items">Items</a>
                 </li>
+                @if (Session::has('user') && Session::get('user')['user_role'] == 'admin')
+                    <li class="px-2 md:px-6 active py-2 group hover:bg-red-600 rounded">
+                        <a class="text-red-700 no-underline group-hover:text-white" href="/users">Users</a>
+                    </li>
+                @endif
             </ul>
             <!-- Profile Settings -->
             <div class="flex items-center gap-2 cursor-pointer">
@@ -39,8 +45,6 @@
                     Welcome,
                     @if (Session::has('user'))
                         {{ Session::get('user')['first_name'] }}
-                    @else
-                        No user
                     @endif
                 </p>
 

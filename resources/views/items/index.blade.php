@@ -22,7 +22,9 @@
                             <th class="px-6 py-2 text-xs text-gray-500">Partnumber</th>
                             <th class="px-6 py-2 text-xs text-gray-500">category Id</th>
                             <th class="px-6 py-2 text-xs text-gray-500">Edit</th>
-                            <th class="px-6 py-2 text-xs text-gray-500">Delete</th>
+                            @if (Session::has('user') && Session::get('user')['user_role'] == 'admin')
+                                <th class="px-6 py-2 text-xs text-gray-500">Delete</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-300">
@@ -46,14 +48,16 @@
                                     <a href="{{ url('/items/' . $item->id . '/edit') }}"
                                         class="px-4 py-1 text-sm text-indigo-600 bg-indigo-200 rounded-full">Edit</a>
                                 </td>
-                                <td>
-                                    <form action="{{ url('/items/' . $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button
-                                            class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</button>
-                                    </form>
-                                </td>
+                                @if (Session::has('user') && Session::get('user')['user_role'] == 'admin')
+                                    <td>
+                                        <form action="{{ url('/items/' . $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button
+                                                class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</button>
+                                        </form>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

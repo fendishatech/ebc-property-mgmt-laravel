@@ -18,12 +18,20 @@ class UserSeeder extends Seeder
     {
         $now = Carbon::now();
 
+        // User::create([
+        //     'first_name' => "kidus",
+        //     'last_name' => "Taye",
+        //     'username' => "kidus@user",
+        //     'password' => Hash::make("12345"),
+        //     'user_role' => "admin",
+        // ]);
+
         User::create([
-            'first_name' => "kidus",
-            'last_name' => "Taye",
-            'username' => "kidus@user",
+            'first_name' => "john",
+            'last_name' => "doe",
+            'username' => "john@user",
             'password' => Hash::make("12345"),
-            'user_role' => "admin",
+            'user_role' => "user",
         ]);
     }
 }

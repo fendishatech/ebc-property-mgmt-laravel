@@ -14,9 +14,11 @@
                 <!-- Store table -->
                 @include('dashboard.partials.store-table')
                 <br />
-                <h1 class="mb-4 text-start py-2 text-red-500 font-bold text-4xl border-b-2 border-red-600">Users</h1>
                 <!-- Users table -->
-                @include('dashboard.partials.users-table')
+                @if (Session::has('user') && Session::get('user')['user_role'] == 'admin')
+                    <h1 class="mb-4 text-start py-2 text-red-500 font-bold text-4xl border-b-2 border-red-600">Users</h1>
+                    @include('dashboard.partials.users-table')
+                @endif
                 <br />
             </div>
             <div class="w-full md:w-1/3">
