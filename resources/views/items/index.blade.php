@@ -10,7 +10,7 @@
                     </div>
                 @endif
                 <div class="w-full p-6 flex justify-between items-center">
-                    <h1 class="text-xl font-bold text-red-600">Store Items</h1>
+                    <h1 class="text-xl font-bold text-red-600">Items List</h1>
                     <a class="px-6 py-2 text-xl bg-red-300 rounded-md text-white font-semibold hover:bg-red-600"
                         href="{{ url('/items/create') }}">Add New Item</a>
                 </div>
