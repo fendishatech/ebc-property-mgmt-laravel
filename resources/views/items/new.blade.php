@@ -33,8 +33,11 @@
                     </label>
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
-                            name="item_name" min="1">
+                            name="item_name" min="1" value="{{ old('item_name') }}">
                     </div>
+                    @if ($errors->has('item_name'))
+                        <span class="text-sm text-red-400">{{ $errors->first('item_name') }}</span>
+                    @endif
                 </div>
 
                 <div class="mb-4">
@@ -43,7 +46,10 @@
                     </label>
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
-                            name="partnumber" min="1">
+                            name="partnumber" min="1" value="{{ old('partnumber') }}">
+                        @if ($errors->has('partnumber'))
+                            <span class="text-sm text-red-400">{{ $errors->first('partnumber') }}</span>
+                        @endif
                     </div>
                 </div>
 

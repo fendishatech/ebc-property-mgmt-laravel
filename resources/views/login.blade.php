@@ -22,18 +22,31 @@
             <h2 class="text-2xl text-center text-gray-400 mb-8">
                 Property Management System
             </h2>
+            @if ($errors->has('custom_error'))
+                <p class="py-2 text-sm text-red-400 text-center">
+                    {{ $errors->first('custom_error') }}
+                </p>
+            @endif
             <div class="px-12 pb-10">
                 <div class="w-full mb-2">
                     <div class="flex items-center">
                         <input type="text" name="username" placeholder="Username"
-                            class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none" />
+                            class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+                            value="{{ old('username') }}" />
                     </div>
+                    @if ($errors->has('username'))
+                        <span class="text-sm text-red-400">{{ $errors->first('username') }}</span>
+                    @endif
                 </div>
                 <div class="w-full mb-2">
                     <div class="flex items-center">
                         <input type="password" name="password" placeholder="Password"
                             class="w-full border rounded px-3 py-2 text-gray-700 focus:outline-none" />
+
                     </div>
+                    @if ($errors->has('password'))
+                        <span class="text-sm text-red-400">{{ $errors->first('password') }}</span>
+                    @endif
                 </div>
                 <button type="submit"
                     class="w-full py-2 mt-8 rounded-full bg-red-600 text-gray-100 focus:outline-none">

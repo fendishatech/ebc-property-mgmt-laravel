@@ -49,7 +49,7 @@ class UsersController extends Controller
 
             return redirect('/users')->with('success', 'User added successfully.');
         } else {
-            return redirect()->back()->withErrors("All fields are required");
+            return redirect()->back()->withErrors("All fields are required")->withInput();
         }
     }
 

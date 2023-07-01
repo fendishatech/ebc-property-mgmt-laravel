@@ -32,13 +32,17 @@
                             {{ $item->location }}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="#"
+                            <a href="{{ url('/items_store/' . $item->id . '/edit') }}"
                                 class="px-4 py-1 text-sm text-indigo-600 bg-indigo-200 rounded-full">Edit</a>
                         </td>
                         @if (Session::has('user') && Session::get('user')['user_role'] == 'admin')
                             <td class="px-6 py-4">
-                                <a href="#"
-                                    class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</a>
+                                <form action="{{ url('/items_store/' . $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
+                                        onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                                </form>
                             </td>
                         @endif
                     </tr>
@@ -47,3 +51,11 @@
         </table>
     </div>
 </div>
+
+<script>
+    function confirmDelete() {
+        if (confirm("Are you sure you want to delete this record?")) {
+            // Submit the form to delete the record
+        }
+    }
+</script>

@@ -14,7 +14,7 @@
                     </label>
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
-                            name="first_name" min="1">
+                            name="first_name" min="1" value="{{ old('first_name') }}">
                         @if ($errors->has('first_name'))
                             <span class="text-sm text-red-400">{{ $errors->first('first_name') }}</span>
                         @endif
@@ -27,7 +27,7 @@
                     </label>
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
-                            name="last_name" min="1">
+                            name="last_name" min="1" value="{{ old('last_name') }}">
                         @if ($errors->has('last_name'))
                             <span class="text-sm text-red-400">{{ $errors->first('last_name') }}</span>
                         @endif
@@ -40,7 +40,7 @@
                     </label>
                     <div class="relative">
                         <input class="w-full px-4 py-2 pr-8 rounded shadow border border-gray-400" type="text"
-                            name="username" min="1">
+                            name="username" min="1" value="{{ old('username') }}">
                         @if ($errors->has('username'))
                             <span class="text-sm text-red-400">{{ $errors->first('username') }}</span>
                         @endif

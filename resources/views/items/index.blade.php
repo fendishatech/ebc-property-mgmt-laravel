@@ -53,8 +53,8 @@
                                         <form action="{{ url('/items/' . $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button
-                                                class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</button>
+                                            <button class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
+                                                onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
                                         </form>
                                     </td>
                                 @endif

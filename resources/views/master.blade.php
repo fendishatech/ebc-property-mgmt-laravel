@@ -15,12 +15,12 @@
         <div class="flex items-center">
             <img class="w-[80px] h-[80px]" src="{{ url('/images/ebc-logo.png') }}" alt="Ebc logo" />
             <div class="hidden md:flex flex-col items-center">
-                <p class="text-2xl text-red-600 font-semibold">
+                <span class="text-2xl text-red-600 font-semibold">
                     የኢትዮጵያ ብሮድካስቲንግ ኮርፖሬሽን
-                </p>
-                <p class="text-xl text-grey-900">
+                </span>
+                <span class="text-xl text-grey-900">
                     Property Management System
-                </p>
+                </span>
             </div>
         </div>
         <!-- Links and profile settings -->
@@ -28,14 +28,17 @@
             <!-- Links -->
             <ul class="flex items-center text-[18px] font-bold">
                 <li class="px-2 md:px-6 active py-2 group hover:bg-red-600 rounded">
-                    <a class="text-red-700 no-underline group-hover:text-white" href="/home">Home</a>
+                    <a class="text-red-600 no-underline group-hover:text-white" href="/home">Home</a>
                 </li>
                 <li class="px-2 md:px-6 active py-2 group hover:bg-red-600 rounded">
-                    <a class="text-red-700 no-underline group-hover:text-white" href="/items">Items</a>
+                    <a class="text-red-600 no-underline group-hover:text-white" href="/items">Items</a>
+                </li>
+                <li class="px-2 md:px-6 active py-2 group hover:bg-red-600 rounded">
+                    <a class="text-red-600 no-underline group-hover:text-white" href="/items_store">Store</a>
                 </li>
                 @if (Session::has('user') && Session::get('user')['user_role'] == 'admin')
                     <li class="px-2 md:px-6 active py-2 group hover:bg-red-600 rounded">
-                        <a class="text-red-700 no-underline group-hover:text-white" href="/users">Users</a>
+                        <a class="text-red-600 no-underline group-hover:text-white" href="/users">Users</a>
                     </li>
                 @endif
             </ul>
@@ -78,10 +81,10 @@
                         <div class="py-1 px-2" role="none">
                             <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                             <a href="/profile_setting"
-                                class="my-2 text-gray-700 block px-4 py-2 text-sm rounded hover:bg-red-600 hover:text-white"
-                                role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
+                                class="my-2 text-gray-700 block px-4 py-2 text-sm rounded no-underline hover:bg-red-600 hover:text-white"
+                                role="menuitem" tabindex="-1" id="menu-item-0">Change Password</a>
                             <a href="/logout"
-                                class="my-2 text-gray-700 block px-4 py-2 text-sm rounded hover:bg-red-600 hover:text-white"
+                                class="my-2 text-gray-700 block px-4 py-2 text-sm rounded no-underline hover:bg-red-600 hover:text-white"
                                 role="menuitem" tabindex="-1" id="menu-item-0">Logout</a>
                         </div>
                     </div>
@@ -96,12 +99,12 @@
         <div class="flex items-center pr-4 border-r-2 border-red-600">
             <img class="w-[80px] h-[80px]" src="{{ url('/images/ebc-logo.png') }}" alt="Ebc logo" />
             <div class="hidden md:flex flex-col items-center">
-                <p class="text-2xl text-red-600 font-semibold">
+                <span class="text-2xl text-red-600 font-semibold">
                     የኢትዮጵያ ብሮድካስቲንግ ኮርፖሬሽን
-                </p>
-                <p class="text-xl text-grey-900">
+                </span>
+                <span class="text-xl text-grey-900">
                     Property Management System
-                </p>
+                </span>
             </div>
         </div>
         <div class="flex items-center">

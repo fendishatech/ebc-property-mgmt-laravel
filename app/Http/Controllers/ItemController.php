@@ -37,15 +37,25 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new Item();
+        $validatedData = $request->validate([
+            'item_name' => 'required',
+            'partnumber' => 'required',
+            'categoryId' => 'required',
+        ]);
 
-        $item->item_name = $request->item_name;
-        $item->partnumber = $request->partnumber;
-        $item->categoryId = $request->categoryId;
+        if ($validatedData) {
+            $item = new Item();
 
-        $item->save();
+            $item->item_name = $request->item_name;
+            $item->partnumber = $request->partnumber;
+            $item->categoryId = $request->categoryId;
 
-        return redirect('/items')->with('success', 'Item added successfully.');
+            $item->save();
+
+            return redirect('/items')->with('success', 'Item added successfully.');
+        } else {
+            return redirect()->back()->withErrors("All feilds are required")->withInput();
+        }
     }
 
     /**
